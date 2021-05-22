@@ -1,16 +1,23 @@
 fun main(){
-    print("45 + 23 = ")
-    println(45 + 23)
+    val a = 45
+    val b = 23
+    print("$a + $b = ")
+    println(a + b)
+    println(a == b)
 
-    print("45 - 23 = ")
-    println(45 - 23)
+    print("$a - $b = ")
+    println(a - b)
+    println(a > b)
 
-    print("45 * 23 = ")
-    println(45 * 23)
+    print("$a * $b = ")
+    println(a * b)
+    println(a != b)
 
-    print("45 / 23 = ")
-    println(45 / 23)
+    print("$a / $b = ")
+    println(a / b)
+    println(a < b)
 
-    print("45 % 23 = ")
-    println(45 % 23)
+    print("$a % $b = ")
+    println(a % b)
+    println(a >= b)
 }
