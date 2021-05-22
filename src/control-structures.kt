@@ -4,7 +4,7 @@ fun main() {
     print("enter the temperature outside:")
 
     do {
-        print("Enter the original total : ")
+        print("enter the temperature outside:")
         temp  = readLine()!!.toDoubleOrNull()
         if (temp == null) println("Not a valid number, try again")
     }
