@@ -1,6 +1,5 @@
 fun main(){
     var input: Int?
-    // If your wondering why I chose this theme with a little bit of a funny store owner character the reason is cause it's fun which programming should be :)
     println("Enter the number of your choice of which shape you would like to get the area of, or enter 5 to exit.")
 
     do {
@@ -79,13 +78,13 @@ fun triangle(){
     while (input3 == null || input3 < 0)
 
     do {
-        print("Enter the height of the rectangle in inches(Must be greater than 0):")
+        print("Enter the height of the triangle in inches(Must be greater than 0):")
         input4  = readLine()!!.toDoubleOrNull()
         if (input4 == null || input4 < 0) println("Not a valid number, try again")
     }
     while (input4 == null || input4 < 0)
 
-    print("The area of that rectangle is ")
+    print("The area of that triangle is ")
     print(getAreaOfTriangle(input3, input4))
     print(" Square inches.")
 }
