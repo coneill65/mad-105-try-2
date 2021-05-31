@@ -84,10 +84,12 @@ fun changeItem(masterArray: Array<Array<String>>, entry: Int): Int {
 
     if (input2 == 2 && qty - input3 < 0) println("That would become less than 0, The item will be set to 0")
     if (input2 == 2 && qty - input3 < 0) return 0
+    if (input2 == 1) println("${masterArray[entry][0]} was: $qty now it's: ${qty + input3}")
+    if (input2 == 2) println("${masterArray[entry][0]} was: $qty now it's: ${qty - input3}")
 
     return when (input2) {
-        1 -> qty + input2
-        2 -> qty - input2
-        else -> input2
+        1 -> qty + input3
+        2 -> qty - input3
+        else -> qty
     }
 }
