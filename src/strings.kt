@@ -22,7 +22,7 @@ fun main(){
         while (input == "")
         result = input.compareTo(questions[1], true)
         if (result == 0) {
-            println("That's correct")
+            println("That's correct\n")
             totalScore += 1
         }
         else println("That's incorrect\n")
