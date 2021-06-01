@@ -17,7 +17,7 @@ fun main(){
         do {
             print(questions[0])
             input  = readLine()!!.toString()
-            if (input == "") println("Entry cannot be empty.")
+            if (input == "") println("Entry cannot be empty.\n")
         }
         while (input == "")
         result = input.compareTo(questions[1], true)
@@ -25,7 +25,7 @@ fun main(){
             println("That's correct")
             totalScore += 1
         }
-        else println("That's incorrect")
+        else println("That's incorrect\n")
     }
     print("You got $totalScore right out of 5")
 
