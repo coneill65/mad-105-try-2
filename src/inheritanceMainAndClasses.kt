@@ -1,4 +1,14 @@
-fun Double.format(digits: Int) = "%.${digits}f".format(this)
+fun Double.format(digits: Int) = "%.${digits}f".format(this)// is used for formatting doubles
+
+/**
+ * Customer
+ * @author Colin O'Neill
+ * date: 6/5/2021
+ * name phone and address copy's are to allow them to be variables and cause I was having some bug.
+ * printAllMain(
+ * Prints the name phone and address in a neat format, this is for inherited classes
+ * )
+ */
 
 open class Customer(name: String, phone: String, address: String){
     private var nameCopy = ""
@@ -19,6 +29,33 @@ open class Customer(name: String, phone: String, address: String){
     }
 }
 
+/**
+ * Commercial
+ * @author Colin O'Neill
+ * date: 6/5/2021
+ * property name and squareFootage are the only non inherited variables, these allow for companies square footage and properties to be tracked.
+ * init(
+ * adds the square footage to the total.
+ * adds the property name to the array.
+ * prints the weekly price.
+ * )
+ *
+ * addProperty(
+ * adds the properties name to the array, adds 1 to the number of properties, adds the square footage to the total, calculates and prints the new price.
+ * )
+ *
+ * private function getPrice(
+ * gets the price based on the total square footage and adds all discounts.
+ * )
+ *
+ * getProperties(
+ * prints all the properties in a neat menu.
+ * )
+ *
+ * printAll(
+ * uses the printAllMain function that it inherited, then prints the square footage total below that.
+ * )
+ */
 class Commercial constructor(propertyName: String, name: String, phone: String, address: String, override var squareFootage: Double): Customer(
     name,
     phone,
@@ -63,6 +100,26 @@ class Commercial constructor(propertyName: String, name: String, phone: String, 
     }
 }
 
+/**
+ * Commercial
+ * @author Colin O'Neill
+ * date: 6/5/2021
+ * senior and squareFootage are the only non inherited variables, these allow for companies square footage and properties to be tracked.
+ *
+ * init(
+ * adds the square footage to the total.
+ * gets the price using the private getPrice function.
+ * prints the weekly price.
+ * )
+ *
+ * private function getPrice(
+ * gets the price based on the total square footage and adds all discounts.
+ * )
+ *
+ * printAll(
+ * uses the printAllMain function that it inherited, then prints the square footage total below that.
+ * )
+ */
 class Residential constructor(senior: Boolean, name: String, phone: String, address: String, override var squareFootage: Double): Customer(
     name,
     phone,
@@ -90,6 +147,12 @@ class Residential constructor(senior: Boolean, name: String, phone: String, addr
     }
 }
 
+/**
+ * creates 3 customers all using different variable to simulate what these classes do.
+ * customer1 is a company with 2 properties giving them a 10% discount(if a company has only 1 property they dont receive a discount).
+ * customer2 is a senior giving them a 15% discount.
+ * customer3 is a regular citizen and receives no discounts
+ */
 fun main(){
     val customer1 = Commercial("Country property", "Colin", "1234567890", "harvard", 10000.00)
     customer1.addProperty("City property", 1000.0)
