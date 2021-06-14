@@ -1,4 +1,4 @@
-fun Double.format(digits: Int) = "%.${digits}f".format(this)// is used for formatting doubles
+import java.util.*
 
 /**
  * Customer
@@ -10,7 +10,7 @@ fun Double.format(digits: Int) = "%.${digits}f".format(this)// is used for forma
  * )
  */
 
-open class Customer(name: String, phone: String, address: String){
+open class Customer2(name: String, phone: String, address: String){
     private var nameCopy = ""
     private var phoneCopy = ""
     private var addressCopy = ""
@@ -56,7 +56,7 @@ open class Customer(name: String, phone: String, address: String){
  * uses the printAllMain function that it inherited, then prints the square footage total below that.
  * )
  */
-class Commercial constructor(propertyName: String, name: String, phone: String, address: String, override var squareFootage: Double): Customer(
+class Commercial2 constructor(propertyName: String, name: String, phone: String, address: String, override var squareFootage: Double): Customer2(
     name,
     phone,
     address
@@ -120,7 +120,7 @@ class Commercial constructor(propertyName: String, name: String, phone: String, 
  * uses the printAllMain function that it inherited, then prints the square footage total below that.
  * )
  */
-class Residential constructor(senior: Boolean, name: String, phone: String, address: String, override var squareFootage: Double): Customer(
+class Residential2 constructor(senior: Boolean, name: String, phone: String, address: String, override var squareFootage: Double): Customer2(
     name,
     phone,
     address
@@ -147,6 +147,38 @@ class Residential constructor(senior: Boolean, name: String, phone: String, addr
     }
 }
 
+fun testIfYOrN(): Boolean {
+    val yOrN = true
+    var seniorUserTest: String
+    do {
+        print("Are you a senior enter y for yes enter n for no:")
+        seniorUserTest = readLine()!!.toString()
+        seniorUserTest = seniorUserTest.lowercase(Locale.getDefault())
+        if (seniorUserTest == "y")
+            return true
+        else if (seniorUserTest == "n")
+            return false
+    }
+    while (!yOrN)
+
+    return false
+}
+
+fun getString(): String {
+    return readLine()!!.toString()
+}
+
+fun getDouble(): Double {
+    var input: Double?
+    do {
+        print("Whats the square footage of your property:")
+        input = readLine()!!.toDoubleOrNull()
+    }
+    while (input == null)
+
+    return input
+}
+
 /**
  * creates 3 customers all using different variable to simulate what these classes do.
  * customer1 is a company with 2 properties giving them a 10% discount(if a company has only 1 property they dont receive a discount).
@@ -154,19 +186,42 @@ class Residential constructor(senior: Boolean, name: String, phone: String, addr
  * customer3 is a regular citizen and receives no discounts
  */
 fun main(){
-    val customer1 = Commercial("Country property", "Colin", "1234567890", "harvard", 10000.00)
+    val customer1 = Commercial2("Country property", "Colin", "1234567890", "harvard", 10000.00)
     customer1.addProperty("City property", 1000.0)
     customer1.getProperties()
     customer1.printAll()
 
     println()
 
-    val customer2 = Residential(true, "Senior", "0987654321", "Chicago", 12345.00)
+    val customer2 = Residential2(true, "Senior", "0987654321", "Chicago", 12345.00)
     customer2.printAll()
 
     println()
 
-    val customer3 = Residential(false, "NotSenior", "1234554321", "mchenry", 12345.00)
+    val customer3 = Residential2(false, "NotSenior", "1234554321", "mchenry", 12345.00)
     customer3.printAll()
 
+    println()
+
+    println("Now create you own property" + "\n")
+
+    val seniorUser = testIfYOrN()
+
+    print("Enter your name:")
+    val userName = getString()
+    println()
+
+    print("Enter your phone number:")
+    val userPhone = getString()
+    println()
+
+    print("Enter your address:")
+    val userAddress = getString()
+    println()
+
+    val squareFootage = getDouble()
+    println()
+
+    val userCustomer = Residential2(seniorUser, userName, userPhone, userAddress, squareFootage)
+    userCustomer.printAll()
 }
